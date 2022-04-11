@@ -8,6 +8,7 @@
 
 body{
   font-family: koho;
+  overflow-x: hidden;
 }
 
 .wrapper{
@@ -181,13 +182,15 @@ body{
     position: absolute;
     left: 0;
   }
-  .stats_block2{
-    width: 50%;
-  }
   .control{
     position: fixed;
-    bottom: 15px;
+    bottom: 25px;
     left: 30%;
     z-index: 100;
+  }
+  .backBtn{
+    background: blue;
+    margin-bottom: 50px;
+    margin-left: 16px;
   }
 }
