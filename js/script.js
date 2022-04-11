@@ -165,9 +165,7 @@ $prev.addEventListener('click', e => {
         cardTemplate(cb.results)
     })
 })
-$pageInput.addEventListener('change', e => {
-    selectPage = e.target.value
-})
+
 $inputBtn.addEventListener('click', e => {
     e.preventDefault()
     if(selectPage > ALL_PAGES || selectPage < 1 || selectPage === currentPage) {
