@@ -12,7 +12,7 @@ const $selectPage = document.querySelector('.selectPage')
 
 const BASE_URL = 'https://pokeapi.co/api/v2/'
 
-const LIMIT = 9
+const LIMIT = 20
 
 const ALL_POKEMONS = 1126
 const ALL_PAGES = Math.floor(ALL_POKEMONS / LIMIT)
@@ -166,41 +166,7 @@ $prev.addEventListener('click', e => {
     })
 })
 
-$inputBtn.addEventListener('click', e => {
-    e.preventDefault()
-    if(selectPage > ALL_PAGES || selectPage < 1 || selectPage === currentPage) {
-        Swal.fire({
-            title: 'Что-то пошло не так!',
-            text: 'Выберите корректное значение',
-            icon: 'error',
-            confirmButtonText: 'Ok'
-        })
-        $pageInput.value = ''
-    }else {
-        const selectedOffSet = selectPage * LIMIT - LIMIT
-        offSetCounter = selectedOffSet
-        $currentPage.innerHTML = selectPage
-        currentPage = selectPage
 
-        if(selectPage !== 1) {
-            $prev.removeAttribute('disabled')
-        }else{
-            $prev.setAttribute('disabled', true)
-        }
-
-        if(selectPage !== ALL_PAGES) {
-            $next.removeAttribute('disabled')
-        } else{
-            $next.setAttribute('disabled', true)
-        }
-
-        getData(`${BASE_URL}pokemon`, `limit=${LIMIT}&offset=${selectedOffSet}`, cb =>{
-            cardTemplate(cb.results)
-        })
-    }
-    $pageInput.value = ''
-
-})
 function changePage() {
     $currentPage.innerHTML = currentPage
 }
